@@ -1,3 +1,7 @@
+# Darence Thong
+# Created 8/4/21
+# This is a clinical scoring tool designed for quick entry and copy to clipboard
+
 import klembord
 klembord.init()
 
@@ -26,7 +30,7 @@ final_score = sum(values_list)
 
 
 print(f"""     
-        HEART Score for Major Cardiac Events
+HEART Score for Major Cardiac Events
 1. Suspicious history (slightly(0), moderately(1), highly(2): {values_list[0]}
 2. EKG (normal(0), repolarization change, LVH, LBBB(2), ST change(3): {values_list[1]}
 3. Age (< 45(0), 45-64(1), >= 65(2): {values_list[2]}
