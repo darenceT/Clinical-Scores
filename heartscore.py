@@ -1,6 +1,7 @@
 # Darence Thong
 # Created 8/4/21
 # This is a clinical scoring tool designed for quick entry and copy to clipboard
+# You will need to install pip, then install klembord "pip install klembord"
 
 import klembord
 klembord.init()
@@ -12,22 +13,17 @@ heart_score_guide = """
  4. RF:                         none[0]         1-2 [1]                 >= 3 [2]                          
     (htn,hl,fat,cig,fh,athero)
  5. Troponin:                   < normal [0]    1-3x normal [1]         > 3x normal [2]"""
-
 prompt_user = '    Enter score (e.g. 01210): '
 prompt_user2 = '    Enter score again (e.g. 11120, only 5 numbers): '
-
 print(heart_score_guide)
 enter_score = input(prompt_user)
 
-while not len(enter_score) == 5:
+while not len(enter_score) == 5:        # Ensures correct length entry
     print(heart_score_guide)
     enter_score = input(prompt_user2)
 
-
-
-values_list = [int(i) for i in str(enter_score)]
-final_score = sum(values_list)
-
+values_list = [int(i) for i in str(enter_score)]  # Convert entry into list
+final_score = sum(values_list)                    # total score
 
 print(f"""     
 HEART Score for Major Cardiac Events
