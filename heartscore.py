@@ -24,19 +24,18 @@ while not len(enter_score) == 5:
 values_list = [int(i) for i in str(enter_score)]
 final_score = sum(values_list)
 
-def display_score():
-    print()
-    print('     HEART Score for Major Cardiac Events')
-    print('1. Suspicious history:', values_list[0])
-    print('2. EK:', values_list[1])
-    print('3. Age:', values_list[2])
-    print('4. RF:', values_list[3])
-    print('5. Troponin:', values_list[4])
-    print()
 
-display_score()
-print('HEART SCORE:', final_score)
-print(""" 
+print(f"""     
+        HEART Score for Major Cardiac Events
+1. Suspicious history (slightly(0), moderately(1), highly(2): {values_list[0]}
+2. EKG (normal(0), repolarization change, LVH, LBBB(2), ST change(3): {values_list[1]}
+3. Age (< 45(0), 45-64(1), >= 65(2): {values_list[2]}
+4. Risk factors* (none(0), 1-2(1), >= 3(2): {values_list[3]}
+5. Initial troponin (<= normal(0), 1-3x normal(1), > 3x normal(2): {values_list[4]}
+
+HEART SCORE: {final_score} 
+
+* Risk factors include HTN, HL, DM, obesity, smoking, family history of CAD, known atherosclerosis.
 Backus et al externally validated the HEART Score with a prospective multicenter study 
 in 2013. The study evaluated 2,440 patients presenting with chest pain to 10 emergency
 departments in the Netherlands. The primary endpoint was the occurrence of any MACE 
@@ -48,8 +47,27 @@ scores 4-6, MACE was diagnosed in 183/1101 (16.6%). In patients with high HEART 
 significantly higher than the c-statistic of TIMI (0.75) and GRACE (0.70) respectively 
 (p <0.0001).""")
 
+# This is for your clipboard
+klembord.set_with_rich_text('', f"""     
+        <strong>HEART Score for Major Cardiac Events</strong>
+<p>1. Suspicious history <i>(slightly(0), moderately(1), highly(2)</i>:<strong> {values_list[0]}</strong><br>
+2. EKG <i>(normal(0), repolarization change, LVH, LBBB(2), ST change(3):</i> <strong>{values_list[1]}</strong><br>
+3. Age <i>(&#60; 45(0), 45-64(1), <u>&#62;</u>65(2)</i>: <strong>{values_list[2]}</strong><br>
+4. Risk factors* <i>(none(0), 1-2(1), >= 3(2)</i>: <strong>{values_list[3]}</strong><br>
+5. Troponin: <strong>{values_list[4]}</strong></p>
 
-klembord.set_with_rich_text('', """
-                            hello testing, <strong>itallic words here</strong>""")
+<p><strong>HEART SCORE: {final_score}</strong></p> <br>
+
+<p>* Risk factors include HTN, HL, DM, obesity, smoking, family history of CAD, known atherosclerosis.<br>
+<i>Backus et al externally validated the HEART Score with a prospective multicenter study 
+in 2013. The study evaluated 2,440 patients presenting with chest pain to 10 emergency
+departments in the Netherlands. The primary endpoint was the occurrence of any MACE 
+within 6 weeks. The performance of the HEART Score was also compared to that of the 
+TIMI Score for UA/NSTEMI and the GRACE ACS Risk Score. In the low risk group (score 
+0-3), 15/870 (1.7%) of patients were found to have a MACE. In patients with HEART 
+scores 4-6, MACE was diagnosed in 183/1101 (16.6%). In patients with high HEART scores 
+(values 7-10), MACE occurred in 50.1%. The c-statistic of the HEART score (0.83) was 
+significantly higher than the c-statistic of TIMI (0.75) and GRACE (0.70) respectively 
+(p <0.0001).</i></p>""")
 
 print('**********The above text has been copied to your clipboard*************')
